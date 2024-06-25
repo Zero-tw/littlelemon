@@ -1,23 +1,44 @@
-# I decided to leave te code of the fron-end and models in restaurant and the api in littlelemonAPI.
+# Introduction to Little Lemon API
 
-You can run  unittests from terminal using: python manage.py test tests/
+Welcome to the Little Lemon API documentation! This API powers the backend for a restaurant management system, providing endpoints for managing menu items, bookings, user authentication, and more. Below, you'll find details on how to interact with the API, including authentication requirements and example endpoints.
 
-# This path can be used to check that web application serves static HTML content with images and styles. I also added some code to make the page fuctional.
-/restaurant
 
-You can use the following API paths for testing purposes using Insomnia or Postman clients
-OR just browse using your favorite browser. To access most endpoints, you need to authenticate using Token-based authentication
+## Getting Started
 
-# JDOSER endpoint, for example, to make POST request and create new user
-/api/users/ 
+### Running Unit Tests
 
-# to login using JDOSER endpoint
-/api/auth/token/login 
+You can run unit tests from the terminal using the following command: 
+- `python manage.py test tests/`
 
-# Menu items
-/api/menu-items/
-/api/menu-items/{menuItemId}/
 
-# Booking 
-/api/booking/
-/api/booking/{bookingId}
+### Serving Static HTML Content
+
+Use this path to verify that the web application serves static HTML content with images and styles. Additional functionality has been added to enhance the page usability.
+- `/restaurant`
+## API Documentation
+
+### Authentication
+
+Most endpoints require Token-based authentication. You'll need to include the token in the Authorization header as follows:
+- `Authorization: token <your_token>`
+
+### Endpoints
+
+- **User Registration**: `POST /api/users/` - No authentication required.
+  Use this endpoint to create a new user.
+
+- **User Login**: Use the `/api/auth/token/login` endpoint to authenticate and obtain a token.
+
+- **Menu Items**: 
+  - List all menu items: `GET /api/menu-items/` - Authentication required.
+  - Retrieve a specific menu item: `GET /api/menu-items/<id>/` - Authentication required.
+  - Create a new menu item: `POST /api/menu-items/` - Authentication required.
+  - Delete a menu item: `DELETE /api/menu-items/<id>/` - Authentication required.
+
+- **Booking**:
+  - List all bookings: `GET /api/bookings/` - Authentication required.
+  - Retrieve a specific booking: `GET /api/bookings/<id>/` - Authentication required.
+  - Create a new booking: `POST /api/bookings/` - Authentication required.
+  - Delete a booking: `DELETE /api/bookings/<id>/` - Authentication required.
+
+Explore these endpoints using tools like Insomnia, Postman, or your favorite web browser. Feel free to reach out if you have any questions.
